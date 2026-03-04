@@ -15,7 +15,6 @@ class House {
         $this->garden  = $garden;
     }
 
-    // Prototype method: salin objek ini
     public function clone(): static {
         return clone $this;
     }
