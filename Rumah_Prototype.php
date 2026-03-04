@@ -15,8 +15,19 @@ class House {
         $this->garden  = $garden;
     }
 
+    // Prototype method: salin objek ini
     public function clone(): static {
         return clone $this;
+    }
+
+    public function setGarage(bool $garage): static {
+        $this->garage = $garage;
+        return $this;
+    }
+
+    public function setGarden(bool $garden): static {
+        $this->garden = $garden;
+        return $this;
     }
 
     public function getInfo(): string {
@@ -30,12 +41,9 @@ $template = new House(2, 10, true, false);
 
 $rumahA = $template->clone();
 
-$rumahB = $template->clone();
-$rumahB->garden = true;
+$rumahB = $template->clone()->setGarden(true);
 
-$rumahC = $template->clone();
-$rumahC->garage = false;
-$rumahC->garden = true;
+$rumahC = $template->clone()->setGarage(false)->setGarden(true);
 
 echo "Rumah A : " . $rumahA->getInfo() . PHP_EOL;
 echo "Rumah B : " . $rumahB->getInfo() . PHP_EOL;
